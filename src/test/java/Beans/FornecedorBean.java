@@ -28,6 +28,11 @@ public class FornecedorBean implements Serializable {
         this.fornecedores = fornecedorDAO.findAll();
     }
     
+    public void removeAction(Fornecedor fornec){
+        fornecedorDAO.delete(fornec);
+        this.fornecedores = fornecedorDAO.findAll();
+    }
+    
     private FornecedorDAO fornecedorDAO = new FornecedorDAO();
     
     private Fornecedor fornecedor = new Fornecedor();

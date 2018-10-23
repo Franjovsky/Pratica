@@ -19,6 +19,13 @@ public FornecedorDAO(){
        session.save(fornecedor);
        session.getTransaction().commit();
     }
+    
+    public void delete (Fornecedor fornecedor){
+        session.getTransaction().begin();
+        session.remove(fornecedor);
+        session.getTransaction().commit();
+    }
+    
         public List<Fornecedor> findAll(){
         return session.createQuery("select f from Fornecedor f").list();
     }

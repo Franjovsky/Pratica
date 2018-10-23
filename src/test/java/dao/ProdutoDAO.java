@@ -20,6 +20,13 @@ public class ProdutoDAO {
        session.save(produto);
        session.getTransaction().commit();
     }
+    
+        public void delete (Produto produto){
+        session.getTransaction().begin();
+        session.remove(produto);
+        session.getTransaction().commit();
+    }
+    
     public List<Produto> findAll(){
         return session.createQuery("select p from Produto p").list();
     }
