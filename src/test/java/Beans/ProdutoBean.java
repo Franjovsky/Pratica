@@ -17,7 +17,7 @@ public class ProdutoBean implements Serializable {
 
     public ProdutoBean() {
     }
-    
+
         public void insertAction(){
         produtoDAO.insert(produto);
         this.produto = new Produto();

@@ -17,7 +17,7 @@ public class FornecedorBean implements Serializable {
 
     public FornecedorBean() {
     }
-    
+
     public void insertAction(){
         fornecedorDAO.insert(fornecedor);
         this.fornecedor = new Fornecedor();
