@@ -1,4 +1,3 @@
-
 package Beans;
 
 import dao.ProdutoDAO;
@@ -9,32 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Produto;
 
-
 @Named(value = "produtoBean")
 @SessionScoped
 public class ProdutoBean implements Serializable {
 
-
     public ProdutoBean() {
     }
 
-        public void insertAction(){
+    public void insertAction() {
         produtoDAO.insert(produto);
         this.produto = new Produto();
         this.produtos = produtoDAO.findAll();
     }
-    
-    public void atualizarAction(){
+
+    public void atualizarAction() {
         this.produtos = produtoDAO.findAll();
     }
-    
-        public void removeAction(Produto prd){
+
+    public void removeAction(Produto prd) {
         produtoDAO.delete(prd);
         this.produtos = produtoDAO.findAll();
     }
-    
+
     private ProdutoDAO produtoDAO = new ProdutoDAO();
-    
+
     private Produto produto = new Produto();
     private List<Produto> produtos = new ArrayList<>();
 
@@ -47,11 +44,12 @@ public class ProdutoBean implements Serializable {
     }
 
     public List<Produto> getProdutos() {
-        if (this.produtos == null) {      
+        if (this.produtos == null) {
             this.produtos = produtoDAO.findAll();
+        }
+        return produtos;
     }
-return produtos;
-    }
+
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
