@@ -12,15 +12,15 @@ public class Marca_cat implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private int ID_Categoria;
     private String Nome_Marca;
 
-    public int getID() {
-        return ID;
+    public int getID_Categoria() {
+        return ID_Categoria;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID_Categoria(int ID_Categoria) {
+        this.ID_Categoria = ID_Categoria;
     }
 
     public String getNome_Marca() {
