@@ -2,34 +2,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Gerenciamento de Estoque</title>
     </h:head>
     <h:body>
-        <h:form>
-            <p:panelMenu style="width:300px">
-                <p:submenu label="Movimentações">
-                    <p:menuitem value="Compra" />
-                    <p:menuitem value="Venda"  />
-                </p:submenu>
-                <p:submenu label="Relatórios">
-                    <p:menuitem value="Estoque Geral"/>
-                    <p:menuitem value="Sazonalidade"/>
-                </p:submenu>
-                <p:separator />
-                <p:submenu label="Cadastrar" >
-                    <p:menuitem value="Produtos" url=""/>
-                    <p:menuitem value="Fornecedores" />
-                    <p:menuitem value="Categorias" />
-                    <p:menuitem value="Marcas" />
-                </p:submenu>
-                <p:submenu label="Opções">
-                    <p:menuitem value="Usuários" />
-                    <p:menuitem value="Logoff" />
-                </p:submenu>
-            </p:panelMenu>
+        
+        <h:form id="barraDeFerramentas">
+            <p:toolbar>
+                <p:toolbarGroup align="left">
+                    <p:menuButton value="Cadastros">
+                        <p:menuitem value="" action="" ajax="false"/>
+                        <p:menuitem value="" action="" ajax="false"/>
+                    </p:menuButton>
+                    <p:commandButton value="Menu 2" action="pagina3" ajax="false"/>
+                </p:toolbarGroup>
+            </p:toolbar>
         </h:form>
+        
     </h:body>
 </html>
 
