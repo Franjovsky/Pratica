@@ -19,8 +19,8 @@
                 <h:inputText value="#{Marca_cat_Bean.marca_cat.Nome_Marca}"/>
 
             </p:panelGrid>
-            
-            
+
+
             <h:commandButton action="#{Marca_cat_Bean.insertAction}" 
                              value="Cadastrar" style="width: 110px; height: 50px;">
                 <f:ajax render="@form" execute="@form"/>
@@ -31,23 +31,23 @@
                 <f:ajax render="@form" execute="tabela2"/>
             </h:commandButton>
 
-            <p:dataTable value="#{Marca_cat_Bean.marcas_cats}" var="item" id="tabela1">
+            <p:dataTable value="#{Marca_cat_Bean.marcas_cats}" var="item" id="tabela2">
                 <p:column headerText="Codigo Produto">
                     <h:outputText value="#{item.ID}"/>   
                 </p:column>
                 <p:column headerText="Nome do Produto">
-                    <h:outputText value="#{item.Prd_Nome}"/>
+                    <h:outputText value="#{item.Marca_Nome}"/>
                 </p:column>
                 <p:column headerText="">
-                    <h:commandButton action="#{ProdutoBean.removeAction(item)}" value="Excluir Produto" 
+                    <h:commandButton action="#{Marca_cat_Bean.removeAction(item)}" value="Excluir Marca" 
                                      onclick="return confirm('Tem Certeza que deseja excluir?');
                                      " style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
                 </p:column>
             </p:dataTable>
-            
-            
+
+
         </h:form>
     </h:body>
 </html>
