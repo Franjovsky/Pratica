@@ -9,124 +9,107 @@ import javax.persistence.Id;
 @Entity
 
 public class Produto implements Serializable {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    private int C_Barras;
-    private int Prd_Qtde;
-    private int Prd_Lote;
-    private String Prd_Nome;
-    private String Prd_Desc;
-    private String Prd_Marca;
-    private String Prd_Categoria;
-    private String Prd_Fornecedor;
-    private String Tipo_Vol;
-    private double Prd_Peso;
-    private double Preco_Compra;
-    private double Preco_venda;
 
-    public int getID() {
-        return ID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_produto;
+    private int cod_barras;
+    private int qtde;
+    private String descricao_produto;
+    private int Prd_Marca;
+    private int id_categoria;
+    private int id_fornecedor;
+    private String tipo_volume;
+    private double peso_produto;
+    private double custo;
+    private double pr_venda;
+
+    public int getid_produto() {
+        return id_produto;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setid_produto(int id_produto) {
+        this.id_produto = id_produto;
     }
 
-    public int getC_Barras() {
-        return C_Barras;
+    public int getcod_barras() {
+        return cod_barras;
     }
 
-    public void setC_Barras(int C_Barras) {
-        this.C_Barras = C_Barras;
+    public void setcod_barras(int cod_barras) {
+        this.cod_barras = cod_barras;
     }
 
-    public int getPrd_Qtde() {
-        return Prd_Qtde;
+    public int getqtde() {
+        return qtde;
     }
 
-    public void setPrd_Qtde(int Prd_Qtde) {
-        this.Prd_Qtde = Prd_Qtde;
+    public void setqtde(int qtde) {
+        this.qtde = qtde;
     }
 
-    public int getPrd_Lote() {
-        return Prd_Lote;
+    public String getdescricao_produto() {
+        return descricao_produto;
     }
 
-    public void setPrd_Lote(int Prd_Lote) {
-        this.Prd_Lote = Prd_Lote;
+    public void setdescricao_produto(String descricao_produto) {
+        this.descricao_produto = descricao_produto;
     }
 
-    public String getPrd_Nome() {
-        return Prd_Nome;
-    }
-
-    public void setPrd_Nome(String Prd_Nome) {
-        this.Prd_Nome = Prd_Nome;
-    }
-
-    public String getPrd_Desc() {
-        return Prd_Desc;
-    }
-
-    public void setPrd_Desc(String Prd_Desc) {
-        this.Prd_Desc = Prd_Desc;
-    }
-
-    public String getPrd_Marca() {
+    public int getPrd_Marca() {
         return Prd_Marca;
     }
 
-    public void setPrd_Marca(String Prd_Marca) {
+    public void setPrd_Marca(int Prd_Marca) {
         this.Prd_Marca = Prd_Marca;
     }
 
-    public String getPrd_Categoria() {
-        return Prd_Categoria;
+    public int getid_categoria() {
+        return id_categoria;
     }
 
-    public void setPrd_Categoria(String Prd_Categoria) {
-        this.Prd_Categoria = Prd_Categoria;
+    public void setid_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
-    public String getTipo_Vol() {
-        return Tipo_Vol;
+    public String gettipo_volume() {
+        return tipo_volume;
     }
 
-    public void setTipo_Vol(String Tipo_Vol) {
-        this.Tipo_Vol = Tipo_Vol;
+    public void settipo_volume(String tipo_volume) {
+        this.tipo_volume = tipo_volume;
     }
 
-    public double getPrd_Peso() {
-        return Prd_Peso;
+    public double getpeso_produto() {
+        return peso_produto;
     }
 
-    public void setPrd_Peso(double Prd_Peso) {
-        this.Prd_Peso = Prd_Peso;
+    public void setpeso_produto(double peso_produto) {
+        this.peso_produto = peso_produto;
     }
 
-    public double getPreco_Compra() {
-        return Preco_Compra;
+    public double getcusto() {
+        return custo;
     }
 
-    public void setPreco_Compra(double Preco_Compra) {
-        this.Preco_Compra = Preco_Compra;
+    public void setcusto(double custo) {
+        this.custo = custo;
     }
 
-    public double getPreco_venda() {
-        return Preco_venda;
+    public double getpr_venda() {
+        return pr_venda;
     }
 
-    public void setPreco_venda(double Preco_venda) {
-        this.Preco_venda = Preco_venda;
+    public void setpr_venda(double pr_venda) {
+        this.pr_venda = pr_venda;
     }
 
-    public String getPrd_Fornecedor() {
-        return Prd_Fornecedor;
+    public int getid_fornecedor() {
+        return id_fornecedor;
     }
 
-    public void setPrd_Fornecedor(String Prd_Fornecedor) {
-        this.Prd_Fornecedor = Prd_Fornecedor;
+    public void setid_fornecedor(int id_fornecedor) {
+        this.id_fornecedor = id_fornecedor;
     }
 
 }
