@@ -13,7 +13,7 @@
 
 
                 <h:outputLabel value="Código da Marca"/> 
-                <h:inputText value="#{Marca_cat_Bean.marca_cat.ID}"/>
+                <h:inputText value="#{Marca_cat_Bean.marca_cat.ID_Categoria}"/>
 
                 <h:outputLabel value="Nome da Marca"/> 
                 <h:inputText value="#{Marca_cat_Bean.marca_cat.Nome_Marca}"/>
@@ -32,10 +32,10 @@
             </h:commandButton>
 
             <p:dataTable value="#{Marca_cat_Bean.marcas_cats}" var="item" id="tabela2">
-                <p:column headerText="Codigo Produto">
-                    <h:outputText value="#{item.ID}"/>   
+                <p:column headerText="Codigo da Categoria">
+                    <h:outputText value="#{item.ID_Categoria}"/>   
                 </p:column>
-                <p:column headerText="Nome do Produto">
+                <p:column headerText="Nome da Marca">
                     <h:outputText value="#{item.Marca_Nome}"/>
                 </p:column>
                 <p:column headerText="">
