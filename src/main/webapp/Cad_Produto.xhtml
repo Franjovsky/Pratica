@@ -68,12 +68,6 @@
             </p:panelGrid>
             <br/>
 
-<<<<<<< HEAD
-        </p:panelGrid>
-        <br/>
-        <div class="col-sm">
-=======
->>>>>>> b67994351b3b486f4993c4e7e9e49deee95bfb0d
             <h:commandButton action="#{ProdutoBean.insertAction}" 
                              value="Cadastrar" style="width: 110px; height: 50px;">
                 <f:ajax render="@form" execute="@form"/>
@@ -92,21 +86,17 @@
                     <h:outputText value="#{item.Prd_Nome}"/>
                 </p:column>
                 <p:column headerText="">
-<<<<<<< HEAD
-                    <h:commandButton action="#{produtoBean.removeAction(item)}" value="Excluir Produto" 
-=======
-                    <h:commandButton action="#{ProdutoBean.removeAction(item)}" value="Excluir Produto" 
->>>>>>> b67994351b3b486f4993c4e7e9e49deee95bfb0d
+
+                    <h:commandButton action="#{ProdutoBean.removeAction(item)}" value="Excluir Produto"
                                      onclick="return confirm('Tem Certeza que deseja excluir?');
                                      " style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
                 </p:column>
             </p:dataTable>
-<<<<<<< HEAD
-=======
+
         </h:form>
->>>>>>> b67994351b3b486f4993c4e7e9e49deee95bfb0d
+
     </h:body>
 </html>
 
