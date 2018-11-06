@@ -12,33 +12,29 @@
         <h:form>
             <p:panelGrid columns="2">
 
-                <h:outputLabel value="Código do Fornecedor"/> 
-                <h:inputText value="#{FornecedorBean.fornecedor.ID}"/>
-
-
                 <h:outputLabel value="Nome do Fornecedor"/>
-                <h:inputText value="#{FornecedorBean.fornecedor.Nome_Fornecedor}"/>
+                <h:inputText value="#{fornecedorBean.fornecedor.razao_fornecedor}"/>
 
 
                 <h:outputLabel value="CNPJ do Fornecedor"/>
-                <h:inputText value="#{FornecedorBean.fornecedor.CNPJ_Fornecedor}"/>
+                <h:inputText value="#{fornecedorBean.fornecedor.cnpj_fornecedor}"/>
 
 
                 <h:outputLabel value="Telefone do Forncedor"/>
-                <h:inputText value="#{FornecedorBean.fornecedor.Tel_Fornecedor}"/>
+                <h:inputText value="#{fornecedorBean.fornecedor.telefone_fornecedor}"/>
 
 
                 <h:outputLabel value="Email do Fornecedor"/>
-                <h:inputText value="#{FornecedorBean.fornecedor.Email_Fornecedor}"/> 
+                <h:inputText value="#{fornecedorBean.fornecedor.email_fornecedor}"/> 
 
             </p:panelGrid>
 
             <br/>
-            <h:commandButton action="#{FornecedorBean.insertAction()}" 
+            <h:commandButton action="#{fornecedorBean.insertAction()}" 
                              value="Cadastrar" style="width: 110px; height: 50px;"/>
 
 
-            <h:commandButton action="#{FornecedorBean.atualizarAction()}" 
+            <h:commandButton action="#{fornecedorBean.atualizarAction()}" 
                              value="Atualizar" style="width: 110px; height: 50px;"/>
         </h:form>
     </h:body>

@@ -15,55 +15,36 @@
 
 
                 <h:outputLabel value="Código do Produto"/>
-                <h:inputText value="#{produtoBean.produto.ID}"/>
+                <h:inputText value="#{produtoBean.produto.id_produto}"/>
 
 
                 <h:outputLabel value="Código de Barras"/>
-                <h:inputText value="#{produtoBean.produto.C_Barras}"/>
+                <h:inputText value="#{produtoBean.produto.cod_barras}"/>
 
 
                 <h:outputLabel value="Nome do Produto"/>
-                <h:inputText value="#{produtoBean.produto.Prd_Nome}"/>
-
-
-                <h:outputLabel value="Descrição do Produto"/>
-                <h:inputText value="#{produtoBean.produto.Prd_Desc}"/>
-
+                <h:inputText value="#{produtoBean.produto.descricao_produto}"/>
 
                 <h:outputLabel value="Peso do Produto"/>
-                <h:inputText value="#{produtoBean.produto.Prd_Peso}"/> 
+                <h:inputText value="#{produtoBean.produto.peso_produto}"/> 
 
 
                 <h:outputLabel value="Quantidade do Produto"/>
-                <h:inputText value="#{produtoBean.produto.Prd_Qtde}"/>
+                <h:inputText value="#{produtoBean.produto.qtde}"/>
 
 
                 <h:outputLabel value="Tipo de Volume"/>
-                <h:inputText value="#{produtoBean.produto.Tipo_Vol}"/>
+                <h:inputText value="#{produtoBean.produto.tipo_volume}"/>
 
 
                 <h:outputLabel value="Preço de Compra"/>
-                <h:inputText value="#{produtoBean.produto.Preco_Compra}"/>
+                <h:inputText value="#{produtoBean.produto.custo}"/>
 
 
                 <h:outputLabel value="Preço de Venda"/>
-                <h:inputText value="#{produtoBean.produto.Preco_Venda}"/>
+                <h:inputText value="#{produtoBean.produto.pr_venda}"/>
 
-
-                <h:outputLabel value="Lote do Produto"/>
-                <h:inputText value="#{produtoBean.produto.Prd_Lote}"/>
-
-
-                <h:outputLabel value="Marca do Produto"/>
-                <h:selectManyMenu value="#{produtoBean.produto.Prd_Marca}"/>
-
-
-                <h:outputLabel value="Categoria do Produto"/>
-                <h:selectManyMenu value="#{produtoBean.produto.Prd_Categoria}"/>
-
-
-                <h:outputLabel value="Fornecedor do Produto"/>
-                <h:selectManyMenu value="#{produtoBean.produto.Prd_Fornecedor}"/>
+ 
 
             </p:panelGrid>
             <br/>
@@ -81,10 +62,10 @@
 
             <p:dataTable value="#{produtoBean.produtos}" var="item" id="tabela1">
                 <p:column headerText="Codigo Produto">
-                    <h:outputText value="#{item.ID}"/>   
+                    <h:outputText value="#{item.id_produto}"/>   
                 </p:column>
                 <p:column headerText="Nome do Produto">
-                    <h:outputText value="#{item.Prd_Nome}"/>
+                    <h:outputText value="#{item.descricao_produto}"/>
                 </p:column>
                 <p:column headerText="">
 

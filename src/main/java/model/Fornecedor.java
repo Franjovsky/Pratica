@@ -12,51 +12,50 @@ public class Fornecedor implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    private int Tel_Fornecedor;
-    private int CNPJ_Fornecedor;
-    private String Nome_Fornecedor;
-    private String Email_Fornecedor;
+    private int id_fornecedor;
+    private String telefone_fornecedor;
+    private String cnpj_fornecedor;
+    private String razao_fornecedor;
+    private String email_fornecedor;
 
-    public int getID() {
-        return ID;
+    public int getId_fornecedor() {
+        return id_fornecedor;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId_fornecedor(int id_fornecedor) {
+        this.id_fornecedor = id_fornecedor;
     }
 
-    public int getTel_Fornecedor() {
-        return Tel_Fornecedor;
+    public String getTelefone_fornecedor() {
+        return telefone_fornecedor;
     }
 
-    public void setTel_Fornecedor(int Tel_Fornecedor) {
-        this.Tel_Fornecedor = Tel_Fornecedor;
+    public void setTelefone_fornecedor(String telefone_fornecedor) {
+        this.telefone_fornecedor = telefone_fornecedor;
     }
 
-    public String getNome_Fornecedor() {
-        return Nome_Fornecedor;
+    public String getCnpj_fornecedor() {
+        return cnpj_fornecedor;
     }
 
-    public void setNome_Fornecedor(String Nome_Fornecedor) {
-        this.Nome_Fornecedor = Nome_Fornecedor;
+    public void setCnpj_fornecedor(String cnpj_ornecedor) {
+        this.cnpj_fornecedor = cnpj_ornecedor;
     }
 
-    public String getEmail_Fornecedor() {
-        return Email_Fornecedor;
+    public String getRazao_fornecedor() {
+        return razao_fornecedor;
     }
 
-    public void setEmail_Fornecedor(String Email_Fornecedor) {
-        this.Email_Fornecedor = Email_Fornecedor;
+    public void setRazao_fornecedor(String razao_fornecedor) {
+        this.razao_fornecedor = razao_fornecedor;
     }
 
-    public int getCNPJ_Fornecedor() {
-        return CNPJ_Fornecedor;
+    public String getEmail_fornecedor() {
+        return email_fornecedor;
     }
 
-    public void setCNPJ_Fornecedor(int CNPJ_Fornecedor) {
-        this.CNPJ_Fornecedor = CNPJ_Fornecedor;
+    public void setEmail_fornecedor(String email_fornecedor) {
+        this.email_fornecedor = email_fornecedor;
     }
-    
 
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Fornecedor;
 
-@Named(value = "forcedorBean")
+@Named(value = "fornecedorBean")
 @SessionScoped
 public class FornecedorBean implements Serializable {
 
