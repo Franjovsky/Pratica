@@ -20,7 +20,7 @@ public class Produto implements Serializable {
     private int id_categoria;//ok
     private int id_fornecedor;//ok
     private String tipo_volume;
-    private double peso_produto;
+    private float peso_produto;
     private double custo;
     private double pr_venda;
 
@@ -56,6 +56,14 @@ public class Produto implements Serializable {
         this.descricao_produto = descricao_produto;
     }
 
+    public int getId_marca() {
+        return id_marca;
+    }
+
+    public void setId_marca(int id_marca) {
+        this.id_marca = id_marca;
+    }
+
     public int getId_categoria() {
         return id_categoria;
     }
@@ -80,7 +88,7 @@ public class Produto implements Serializable {
         this.tipo_volume = tipo_volume;
     }
 
-    public double getPeso_produto() {
+    public float getPeso_produto() {
         return peso_produto;
     }
 
@@ -92,7 +100,7 @@ public class Produto implements Serializable {
         return custo;
     }
 
-    public void setCusto(float custo) {
+    public void setCusto(double custo) {
         this.custo = custo;
     }
 
@@ -100,16 +108,8 @@ public class Produto implements Serializable {
         return pr_venda;
     }
 
-    public void setPr_venda(float pr_venda) {
+    public void setPr_venda(double pr_venda) {
         this.pr_venda = pr_venda;
-    }
-
-    public int getId_marca() {
-        return id_marca;
-    }
-
-    public void setId_marca(int id_marca) {
-        this.id_marca = id_marca;
     }
 
 }

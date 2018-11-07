@@ -14,12 +14,11 @@
             <p:panelGrid columns="2">
 
 
-                <h:outputLabel value="Código do Produto"/>
-                <h:inputText value="#{produtoBean.produto.id_produto}"/>
+   
 
 
                 <h:outputLabel value="Código de Barras"/>
-                <h:inputText value="#{produtoBean.produto.cod_barras}"/>
+                <h:inputText  value="#{produtoBean.produto.cod_barras}"/>
 
 
                 <h:outputLabel value="Nome do Produto"/>
@@ -28,7 +27,7 @@
                 <h:outputLabel value="Peso do Produto"/>
                 <h:inputText value="#{produtoBean.produto.peso_produto}"/> 
 
-
+                
                 <h:outputLabel value="Quantidade do Produto"/>
                 <h:inputText value="#{produtoBean.produto.qtde}"/>
 
@@ -49,7 +48,7 @@
             </p:panelGrid>
             <br/>
 
-            <h:commandButton action="#{produtoBean.insertAction}" 
+            <h:commandButton action="#{produtoBean.insertAction()}" 
 
                              value="Cadastrar" style="width: 110px; height: 50px;">
                 <f:ajax render="@form" execute="@form"/>
