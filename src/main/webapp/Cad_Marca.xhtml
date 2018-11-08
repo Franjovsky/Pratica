@@ -5,41 +5,38 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Cadastro de Marca</title>
     </h:head>
     <h:body>
         <h:form>
             <p:panelGrid columns="2">
 
 
-                <h:outputLabel value="Código da Marca"/> 
-                <h:inputText value="#{Marca_cat_Bean.marca_cat.ID_Categoria}"/>
-
                 <h:outputLabel value="Nome da Marca"/> 
-                <h:inputText value="#{Marca_cat_Bean.marca_cat.Nome_Marca}"/>
+                <h:inputText value="#{marcaBean.marca.desc_marca}"/>
 
             </p:panelGrid>
 
 
-            <h:commandButton action="#{Marca_cat_Bean.insertAction}" 
+            <h:commandButton action="#{marcaBean.insertAction()}" 
                              value="Cadastrar" style="width: 110px; height: 50px;">
                 <f:ajax render="@form" execute="@form"/>
             </h:commandButton>
 
-            <h:commandButton action="#{Marca_cat_Bean.atualizarAction()}" 
+            <h:commandButton action="#{marcaBean.atualizarAction()}" 
                              value="Atualizar" style="width: 110px; height: 50px;">
                 <f:ajax render="@form" execute="tabela2"/>
             </h:commandButton>
 
-            <p:dataTable value="#{Marca_cat_Bean.marcas_cats}" var="item" id="tabela2">
+            <p:dataTable value="#{marcaBean.marcas}" var="Item_M" id="tabela2">
                 <p:column headerText="Codigo da Categoria">
-                    <h:outputText value="#{item.ID_Categoria}"/>   
+                    <h:outputText value="#{Item_M.id_marca}"/>   
                 </p:column>
                 <p:column headerText="Nome da Marca">
-                    <h:outputText value="#{item.Marca_Nome}"/>
+                    <h:outputText value="#{Item_M.desc_marca}"/>
                 </p:column>
                 <p:column headerText="">
-                    <h:commandButton action="#{Marca_cat_Bean.removeAction(item)}" value="Excluir Marca" 
+                    <h:commandButton action="#{marcaBean.removeAction(Item_M)}" value="Excluir Marca" 
                                      onclick="return confirm('Tem Certeza que deseja excluir?');
                                      " style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>

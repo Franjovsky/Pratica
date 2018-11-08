@@ -2,31 +2,31 @@ package dao;
 
 import config.HibernateUtil;
 import java.util.List;
-import model.Marca_cat;
+import model.Marca;
 import org.hibernate.Session;
 
-public class Marca_cat_DAO {
+public class MarcaDAO {
 
     private Session session;
 
-    public Marca_cat_DAO() {
+    public MarcaDAO() {
 
         session = HibernateUtil.getSessionFactory().openSession();
     }
 
-    public void insert(Marca_cat marca_cat) {
+    public void insert(Marca marca) {
         session.getTransaction().begin();
-        session.save(marca_cat);
+        session.save(marca);
         session.getTransaction().commit();
     }
 
-    public void delete(Marca_cat marca_cat) {
+    public void delete(Marca marca) {
         session.getTransaction().begin();
-        session.remove(marca_cat);
+        session.remove(marca);
         session.getTransaction().commit();
     }
 
-    public List<Marca_cat> findAll() {
-        return session.createQuery("select mc from Marca_cat mc").list();
+    public List<Marca> findAll() {
+        return session.createQuery("select m from Marca m").list();
     }
 }
