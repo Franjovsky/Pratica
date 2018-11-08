@@ -38,21 +38,21 @@
             <h:commandButton action="#{fornecedorBean.atualizarAction()}" 
                              value="Atualizar" style="width: 110px; height: 50px;"/>
 
-            <p:dataTable value="#{fornecedorBean.fornecedores}" var="item" id="tabela1">
+            <p:dataTable value="#{fornecedorBean.fornecedores}" var="itens" id="tabela1">
                 <p:column headerText="Codigo do Fornecedor">
-                    <h:outputText value="#{item.id_fornecedor}"/>   
+                    <h:outputText value="#{itens.id_fornecedor}"/>   
                 </p:column>
                 <p:column headerText="Nome do Fornecedor">
-                    <h:outputText value="#{item.razao_fornecedor}"/>
+                    <h:outputText value="#{itens.razao_fornecedor}"/>
                 </p:column>
                 <p:column headerText="">
 
 
 
-                    <h:commandButton action="#{produtoBean.removeAction(item)}" value="Excluir Fornecedor" 
+                    <h:commandButton action="#{fornecedorBean.removeAction(itens)}" value="Excluir Fornecedor" 
 
-                                     onclick="return confirm('Tem Certeza que deseja excluir?')
-                                     " style="width: 165px; height: 50px;">               
+                                     onclick="return confirm('Tem Certeza que deseja excluir?')" 
+                                     style="width: 165px; height: 50px;">               
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
                 </p:column>

@@ -20,7 +20,7 @@ public class Produto implements Serializable {
     private int id_categoria;//ok
     private int id_fornecedor;//ok
     private String tipo_volume;
-    private float peso_produto;
+    private double peso_produto;
     private double custo;
     private double pr_venda;
 
@@ -88,11 +88,11 @@ public class Produto implements Serializable {
         this.tipo_volume = tipo_volume;
     }
 
-    public float getPeso_produto() {
+    public double getPeso_produto() {
         return peso_produto;
     }
 
-    public void setPeso_produto(float peso_produto) {
+    public void setPeso_produto(double peso_produto) {
         this.peso_produto = peso_produto;
     }
 
