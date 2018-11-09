@@ -59,18 +59,18 @@
                 <f:ajax render="@form" execute="tabela1"/>
             </h:commandButton>
 
-            <p:dataTable value="#{produtoBean.produtos}" var="item" id="tabela1">
+            <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
                 <p:column headerText="Codigo Produto">
-                    <h:outputText value="#{item.id_produto}"/>   
+                    <h:outputText value="#{Item_C.id_produto}"/>   
                 </p:column>
                 <p:column headerText="Nome do Produto">
-                    <h:outputText value="#{item.descricao_produto}"/>
+                    <h:outputText value="#{Item_C.descricao_produto}"/>
                 </p:column>
                 <p:column headerText="">
 
 
 
-                    <h:commandButton action="#{produtoBean.removeAction(item)}" value="Excluir Produto" 
+                    <h:commandButton action="#{produtoBean.removeAction(Item_C)}" value="Excluir Produto" 
 
                                      onclick="return confirm('Tem Certeza que deseja excluir?');
                                      " style="width: 110px; height: 50px;">

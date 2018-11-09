@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Categoria</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="2">
+
+
+                <h:outputLabel value="Nome da Categoria"/> 
+                <h:inputText value="#{categoriaBean.categoria.desc_categoria}"/>
+
+            </p:panelGrid>
+
+
+            <h:commandButton action="#{categoriaBean.insertAction()}" 
+                             value="Cadastrar" style="width: 110px; height: 50px;">
+                <f:ajax render="@form" execute="@form"/>
+            </h:commandButton>
+
+            <h:commandButton action="#{categoriaBean.atualizarAction()}" 
+                             value="Atualizar" style="width: 110px; height: 50px;">
+                <f:ajax render="@form" execute="tabela2"/>
+            </h:commandButton>
+
+            <p:dataTable value="#{categoriaBean.categorias}" var="Item_C" id="tabela2">
+                <p:column headerText="Codigo da Categoria">
+                    <h:outputText value="#{Item_C.id_categoria}"/>   
+                </p:column>
+                <p:column headerText="Nome da Categoria">
+                    <h:outputText value="#{Item_C.desc_categoria}"/>
+                </p:column>
+                <p:column headerText="">
+                    <h:commandButton action="#{categoriaBean.removeAction(Item_C)}" value="Excluir Categoria" 
+                                     onclick="return confirm('Tem Certeza que deseja excluir?');
+                                     " style="width: 110px; height: 50px;">
+                        <f:ajax render="@form" execute="@form"/>
+                    </h:commandButton>
+                </p:column>
+            </p:dataTable>
+
+
+        </h:form>
+    </h:body>
+</html>
+

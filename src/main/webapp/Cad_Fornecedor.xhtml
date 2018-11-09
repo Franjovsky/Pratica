@@ -38,12 +38,12 @@
             <h:commandButton action="#{fornecedorBean.atualizarAction()}" 
                              value="Atualizar" style="width: 110px; height: 50px;"/>
 
-            <p:dataTable value="#{fornecedorBean.fornecedores}" var="itens" id="tabela1">
+            <p:dataTable value="#{fornecedorBean.fornecedores}" var="Item_F" id="tabela1">
                 <p:column headerText="Codigo do Fornecedor">
-                    <h:outputText value="#{itens.id_fornecedor}"/>   
+                    <h:outputText value="#{Item_F.id_fornecedor}"/>   
                 </p:column>
                 <p:column headerText="Nome do Fornecedor">
-                    <h:outputText value="#{itens.razao_fornecedor}"/>
+                    <h:outputText value="#{Item_F.razao_fornecedor}"/>
                 </p:column>
                 <p:column headerText="">
 
