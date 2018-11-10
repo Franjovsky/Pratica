@@ -29,4 +29,7 @@ public class FornecedorDAO {
     public List<Fornecedor> findAll() {
         return session.createQuery("select f from Fornecedor f").list();
     }
+    public Fornecedor find (int id){
+        return session.get(Fornecedor.class, id);
+    }
 }

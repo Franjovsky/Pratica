@@ -31,6 +31,31 @@ public class Categoria implements Serializable {
         this.desc_categoria = desc_categoria;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + this.id_categoria;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Categoria other = (Categoria) obj;
+        if (this.id_categoria != other.id_categoria) {
+            return false;
+        }
+        return true;
+    }
+
    
 
 }

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 
@@ -16,9 +18,15 @@ public class Produto implements Serializable {
     private int cod_barras;
     private int qtde;
     private String descricao_produto;
-    private int id_marca;
-    private int id_categoria;//ok
-    private int id_fornecedor;//ok
+    @ManyToOne
+    @JoinColumn (name = "id_marca")
+    private Marca marca;
+    @ManyToOne
+    @JoinColumn (name = "id_categoria")
+    private Categoria categoria;//ok
+    @ManyToOne
+    @JoinColumn (name = "id_fornecedor")
+    private Fornecedor fornecedor;//ok
     private String tipo_volume;
     private double peso_produto;
     private double custo;
@@ -56,28 +64,28 @@ public class Produto implements Serializable {
         this.descricao_produto = descricao_produto;
     }
 
-    public int getId_marca() {
-        return id_marca;
+    public Marca getMarca() {
+        return marca;
     }
 
-    public void setId_marca(int id_marca) {
-        this.id_marca = id_marca;
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public int getId_fornecedor() {
-        return id_fornecedor;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public void setId_fornecedor(int id_fornecedor) {
-        this.id_fornecedor = id_fornecedor;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public String getTipo_volume() {
@@ -111,5 +119,6 @@ public class Produto implements Serializable {
     public void setPr_venda(double pr_venda) {
         this.pr_venda = pr_venda;
     }
+
 
 }

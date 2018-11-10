@@ -11,6 +11,13 @@
     <h:body>
 
         <h:form>
+            <f:metadata>
+                <f:viewAction action="#{fornecedorBean.atualizarAction()}" rendererType="preRenderView" />
+                <f:viewAction action="#{marcaBean.atualizarAction()}" rendererType="preRenderView" />
+                <f:viewAction action="#{categoriaBean.atualizarAction()}" rendererType="preRenderView" />
+                
+            </f:metadata>
+            <h:messages/>
             <p:panelGrid columns="2">
 
 
@@ -42,6 +49,24 @@
 
                 <h:outputLabel value="Preço de Venda"/>
                 <h:inputText value="#{produtoBean.produto.pr_venda}"/>
+                
+                <h:outputLabel value="Marca"/>
+                <h:selectOneMenu value="#{produtoBean.produto.marca}" converter="marcaConverter"> 
+                    <f:selectItems value="#{marcaBean.marcas}" var="item" itemLabel="#{item.desc_marca}"
+                                   itemValue="#{item}"/>
+                    </h:selectOneMenu>
+                 <h:outputLabel value="Fornecedor"/>
+                 <h:selectOneMenu value="#{produtoBean.produto.fornecedor}" converter="fornecedorConverter"> 
+                     <f:selectItems value="#{fornecedorBean.fornecedores}" var="item" itemLabel="#{item.razao_fornecedor}"
+                                   itemValue="#{item}"/>  
+                     </h:selectOneMenu>
+                     
+                 <h:outputLabel value="Categoria"/>
+                 <h:selectOneMenu value="#{produtoBean.produto.categoria}" converter="categoriaConverter"> 
+                     <f:selectItems value="#{categoriaBean.categorias}" var="item" itemLabel="#{item.desc_categoria}"
+                                   itemValue="#{item}"/>
+                    
+                </h:selectOneMenu>
 
 
 
@@ -73,7 +98,7 @@
                     <h:commandButton action="#{produtoBean.removeAction(Item_C)}" value="Excluir Produto" 
 
                                      onclick="return confirm('Tem Certeza que deseja excluir?');
-                                     " style="width: 110px; height: 50px;">
+                                     " style="width: 165px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
                 </p:column>

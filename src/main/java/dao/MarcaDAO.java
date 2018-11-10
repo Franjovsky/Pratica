@@ -29,4 +29,7 @@ public class MarcaDAO {
     public List<Marca> findAll() {
         return session.createQuery("select m from Marca m").list();
     }
+    public Marca find (int id){
+        return session.get(Marca.class, id);
+    }
 }

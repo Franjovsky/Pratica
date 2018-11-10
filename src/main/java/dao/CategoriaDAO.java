@@ -29,4 +29,7 @@ public class CategoriaDAO {
     public List<Categoria> findAll() {
         return session.createQuery("select c from Categoria c").list();
     }
+    public Categoria find (int id ){
+        return session.get(Categoria.class,id);
+    }
 }
