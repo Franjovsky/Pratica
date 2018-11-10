@@ -10,45 +10,40 @@
     <h:head>
         <title>Gerenciamento de Estoque</title>
 
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     </h:head>
     <h:body>
+        <ui:insert name="conteudo">
+            <ui:include src="C:\PRATICA\PP1\src\main\webapp\Meu_templatinho.xhtml">
+            <h:form>
+                <p:menubar>
 
-        <h:form>
-            <p:menubar>
-                                           
-                <p:submenu label="Movimentações">
-                    <p:menuitem value="Compra"/>
-                    <p:menuitem value="Venda"/>
-                    <p:menuitem value="Ajustes"/>
-                </p:submenu>
-                                          
-                <p:submenu label="Cadastros">
-                    <p:menuitem value="Produto" outcome="Cad_Produto.xhtml"/>
-                    <p:menuitem value="Marca" outcome="Cad_Marca"/>
-                    <p:menuitem value="Categoria" outcome="Cad_Categoria"/>
-                    <p:menuitem value="Fornecedor"/>
-                </p:submenu>
-                
-                <p:submenu label="Relatórios">
-                    <p:menuitem value="Estoque Total"/>
-                    <p:menuitem value="Sazonalidade"/>
-                </p:submenu>
-                
-                <p:submenu label="Outros">
-                    <p:menuitem value="Usuários"/>
-                    <p:menuitem value="Sair"/>
-                </p:submenu>
-                
-            </p:menubar>
-            
-        </h:form>
-        
+                    <p:submenu label="Movimentações">
+                        <p:menuitem value="Compra"/>
+                        <p:menuitem value="Venda"/>
+                        <p:menuitem value="Ajustes"/>
+                    </p:submenu>
+
+                    <p:submenu label="Cadastros">
+                        <p:menuitem value="Produto" outcome="Cad_Produto.xhtml"/>
+                        <p:menuitem value="Marca" outcome="Cad_Marca"/>
+                        <p:menuitem value="Categoria" outcome="Cad_Categoria"/>
+                        <p:menuitem value="Fornecedor"/>
+                    </p:submenu>
+
+                    <p:submenu label="Relatórios">
+                        <p:menuitem value="Estoque Total"/>
+                        <p:menuitem value="Sazonalidade"/>
+                    </p:submenu>
+
+                    <p:submenu label="Outros">
+                        <p:menuitem value="Usuários"/>
+                        <p:menuitem value="Sair"/>
+                    </p:submenu>
+
+                </p:menubar>
+            </h:form>
+            </ui:include>
+        </ui:insert>
     </h:body>
 </html>
 
