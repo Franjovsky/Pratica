@@ -8,6 +8,8 @@ import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.Usuario;
 
 @Named(value = "usuarioBean")
@@ -45,9 +47,21 @@ public class UsuarioBean implements Serializable {
         if (verifica == 1) {
             return "Cad_Produto";
         } else {
+            mensagens("Verifique os dados informados",0);
             return "";
         }
         
+    }
+    public void mensagens(String mensagem, int tipo) {
+        if (tipo == 0) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        }
     }
 
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
