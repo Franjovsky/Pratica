@@ -15,33 +15,32 @@
 
                 <h:form>
                     <p:panelGrid columns="2">
-
-
-                        <h:outputLabel value="Nome da Categoria"/> 
-                        <h:inputText value="#{categoriaBean.categoria.desc_categoria}"/>
+                        
+                         <h:outputLabel value="Senha"/> 
+                         <h:inputText value="#{usuarioBean.usuario.senha_usuario}"/>
 
                     </p:panelGrid>
                     <br/>
 
-                    <h:commandButton action="#{categoriaBean.insertAction()}" 
+                    <h:commandButton action="#{usuarioBean.insertAction()}" 
                                      value="Cadastrar" style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
 
-                    <h:commandButton action="#{categoriaBean.atualizarAction()}" 
+                    <h:commandButton action="#{usuarioBean.atualizarAction()}" 
                                      value="Atualizar" style="width: 110px; height: 50px;">
-                        <f:ajax render="@form" execute="tabela2"/>
+                        <f:ajax render="@form" execute="tabela3"/>
                     </h:commandButton>
 
-                    <p:dataTable value="#{categoriaBean.categorias}" var="Item_C" id="tabela2">
-                        <p:column headerText="Codigo da Categoria">
-                            <h:outputText value="#{Item_C.id_categoria}"/>   
+                    <p:dataTable value="#{usuarioBean.usuarios}" var="Item_U" id="tabela3">
+                        <p:column headerText="Codigo do Usuário">
+                            <h:outputText value="#{Item_U.id_usuario}"/>   
                         </p:column>
-                        <p:column headerText="Nome da Categoria">
-                            <h:outputText value="#{Item_C.desc_categoria}"/>
+                        <p:column headerText="Senha">
+                            <h:outputText value="#{Item_U.senha_usuario}"/>
                         </p:column>
                         <p:column headerText="">
-                            <h:commandButton action="#{categoriaBean.removeAction(Item_C)}" value="Excluir Categoria" 
+                            <h:commandButton action="#{usuarioBean.removeAction(Item_U)}" value="Excluir Usuário" 
                                              onclick="return confirm('Tem Certeza que deseja excluir?');
                                              " style="width: 165px; height: 50px;">
                                 <f:ajax render="@form" execute="@form"/>

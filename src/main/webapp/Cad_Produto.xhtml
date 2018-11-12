@@ -11,100 +11,105 @@
     </h:head>
     <h:body>
 
-        <h:form>
-            <ui:composition template="Meu_templatinho.xhtml"/>
-            <ui:define name="conteudo"/>
-            <f:metadata>
-                <f:viewAction action="#{fornecedorBean.atualizarAction()}" rendererType="preRenderView" />
-                <f:viewAction action="#{marcaBean.atualizarAction()}" rendererType="preRenderView" />
-                <f:viewAction action="#{categoriaBean.atualizarAction()}" rendererType="preRenderView" />
+        <ui:composition template="Meu_templatinho.xhtml">
+            <ui:define name="conteudo">
 
-            </f:metadata>
-            <h:messages/>
-            <p:panelGrid columns="2">
+                <h:form>
 
-                <h:outputLabel value="Código de Barras"/>
-                <h:inputText  value="#{produtoBean.produto.cod_barras}"/>
+                    <p:panel id="panel" header="Novo Produto">
+                    
+                    <f:metadata>
+                        <f:viewAction action="#{fornecedorBean.atualizarAction()}" rendererType="preRenderView" />
+                        <f:viewAction action="#{marcaBean.atualizarAction()}" rendererType="preRenderView" />
+                        <f:viewAction action="#{categoriaBean.atualizarAction()}" rendererType="preRenderView" />
 
+                    </f:metadata>
+                    <h:messages/>
+                    <p:panelGrid columns="2">
 
-                <h:outputLabel value="Nome do Produto"/>
-                <h:inputText value="#{produtoBean.produto.descricao_produto}"/>
-
-                <h:outputLabel value="Peso do Produto"/>
-                <h:inputText value="#{produtoBean.produto.peso_produto}"/> 
+                        <h:outputLabel value="Código de Barras"/>
+                        <h:inputText  value="#{produtoBean.produto.cod_barras}"/>
 
 
-                <h:outputLabel value="Quantidade do Produto"/>
-                <h:inputText value="#{produtoBean.produto.qtde}"/>
+                        <h:outputLabel value="Nome do Produto"/>
+                        <h:inputText value="#{produtoBean.produto.descricao_produto}"/>
+
+                        <h:outputLabel value="Peso do Produto"/>
+                        <h:inputText value="#{produtoBean.produto.peso_produto}"/> 
 
 
-                <h:outputLabel value="Tipo de Volume"/>
-                <h:inputText value="#{produtoBean.produto.tipo_volume}"/>
+                        <h:outputLabel value="Quantidade do Produto"/>
+                        <h:inputText value="#{produtoBean.produto.qtde}"/>
 
 
-                <h:outputLabel value="Preço de Compra"/>
-                <h:inputText value="#{produtoBean.produto.custo}"/>
+                        <h:outputLabel value="Tipo de Volume"/>
+                        <h:inputText value="#{produtoBean.produto.tipo_volume}"/>
 
 
-                <h:outputLabel value="Preço de Venda"/>
-                <h:inputText value="#{produtoBean.produto.pr_venda}"/>
-
-                <h:outputLabel value="Marca"/>
-                <h:selectOneMenu value="#{produtoBean.produto.marca}" converter="marcaConverter"> 
-                    <f:selectItems value="#{marcaBean.marcas}" var="item" itemLabel="#{item.desc_marca}"
-                                   itemValue="#{item}"/>
-                </h:selectOneMenu>
-                <h:outputLabel value="Fornecedor"/>
-                <h:selectOneMenu value="#{produtoBean.produto.fornecedor}" converter="fornecedorConverter"> 
-                    <f:selectItems value="#{fornecedorBean.fornecedores}" var="item" itemLabel="#{item.razao_fornecedor}"
-                                   itemValue="#{item}"/>  
-                </h:selectOneMenu>
-
-                <h:outputLabel value="Categoria"/>
-                <h:selectOneMenu value="#{produtoBean.produto.categoria}" converter="categoriaConverter"> 
-                    <f:selectItems value="#{categoriaBean.categorias}" var="item" itemLabel="#{item.desc_categoria}"
-                                   itemValue="#{item}"/>
-
-                </h:selectOneMenu>
+                        <h:outputLabel value="Preço de Compra"/>
+                        <h:inputText value="#{produtoBean.produto.custo}"/>
 
 
+                        <h:outputLabel value="Preço de Venda"/>
+                        <h:inputText value="#{produtoBean.produto.pr_venda}"/>
 
-            </p:panelGrid>
-            <br/>
+                        <h:outputLabel value="Marca"/>
+                        <h:selectOneMenu value="#{produtoBean.produto.marca}" converter="marcaConverter"> 
+                            <f:selectItems value="#{marcaBean.marcas}" var="item" itemLabel="#{item.desc_marca}"
+                                           itemValue="#{item}"/>
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Fornecedor"/>
+                        <h:selectOneMenu value="#{produtoBean.produto.fornecedor}" converter="fornecedorConverter"> 
+                            <f:selectItems value="#{fornecedorBean.fornecedores}" var="item" itemLabel="#{item.razao_fornecedor}"
+                                           itemValue="#{item}"/>  
+                        </h:selectOneMenu>
 
-            <h:commandButton action="#{produtoBean.insertAction()}" 
+                        <h:outputLabel value="Categoria"/>
+                        <h:selectOneMenu value="#{produtoBean.produto.categoria}" converter="categoriaConverter"> 
+                            <f:selectItems value="#{categoriaBean.categorias}" var="item" itemLabel="#{item.desc_categoria}"
+                                           itemValue="#{item}"/>
 
-                             value="Cadastrar" style="width: 110px; height: 50px;">
-                <f:ajax render="@form" execute="@form"/>
-            </h:commandButton>
-
-            <h:commandButton action="#{produtoBean.atualizarAction()}" 
-                             value="Atualizar" style="width: 110px; height: 50px;">
-                <f:ajax render="@form" execute="tabela1"/>
-            </h:commandButton>
-
-            <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
-                <p:column headerText="Codigo Produto">
-                    <h:outputText value="#{Item_C.id_produto}"/>   
-                </p:column>
-                <p:column headerText="Nome do Produto">
-                    <h:outputText value="#{Item_C.descricao_produto}"/>
-                </p:column>
-                <p:column headerText="">
+                        </h:selectOneMenu>
 
 
 
-                    <h:commandButton action="#{produtoBean.removeAction(Item_C)}" value="Excluir Produto" 
+                    </p:panelGrid>
+                    <br/>
 
-                                     onclick="return confirm('Tem Certeza que deseja excluir?');
-                                     " style="width: 165px; height: 50px;">
+                    <h:commandButton action="#{produtoBean.insertAction()}" 
+
+                                     value="Cadastrar" style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="@form"/>
                     </h:commandButton>
-                </p:column>
-            </p:dataTable>
+
+                    <h:commandButton action="#{produtoBean.atualizarAction()}" 
+                                     value="Atualizar" style="width: 110px; height: 50px;">
+                        <f:ajax render="@form" execute="tabela1"/>
+                    </h:commandButton>
+
+                    <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
+                        <p:column headerText="Codigo Produto">
+                            <h:outputText value="#{Item_C.id_produto}"/>   
+                        </p:column>
+                        <p:column headerText="Nome do Produto">
+                            <h:outputText value="#{Item_C.descricao_produto}"/>
+                        </p:column>
+                        <p:column headerText="">
 
 
-        </h:form>
+
+                            <h:commandButton action="#{produtoBean.removeAction(Item_C)}" value="Excluir Produto" 
+
+                                             onclick="return confirm('Tem Certeza que deseja excluir?');
+                                             " style="width: 165px; height: 50px;">
+                                <f:ajax render="@form" execute="@form"/>
+                            </h:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>        
     </h:body>
 
 </html>

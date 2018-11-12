@@ -50,7 +50,7 @@ public class CategoriaBean implements Serializable {
         return categoria;
     }
 
-    public void setMarca(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
