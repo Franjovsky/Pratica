@@ -19,13 +19,13 @@ public class Produto implements Serializable {
     private int qtde;
     private String descricao_produto;
     @ManyToOne
-    @JoinColumn (name = "id_marca")
+    @JoinColumn(name = "id_marca")
     private Marca marca;
     @ManyToOne
-    @JoinColumn (name = "id_categoria")
+    @JoinColumn(name = "id_categoria")
     private Categoria categoria;//ok
     @ManyToOne
-    @JoinColumn (name = "id_fornecedor")
+    @JoinColumn(name = "id_fornecedor")
     private Fornecedor fornecedor;//ok
     private String tipo_volume;
     private double peso_produto;
@@ -119,6 +119,5 @@ public class Produto implements Serializable {
     public void setPr_venda(double pr_venda) {
         this.pr_venda = pr_venda;
     }
-
 
 }

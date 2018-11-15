@@ -29,7 +29,7 @@ public class ProdutoBean implements Serializable {
         produtoDAO.delete(prd);
         this.produtos = produtoDAO.findAll();
     }
-
+    
     private ProdutoDAO produtoDAO = new ProdutoDAO();
 
     private Produto produto = new Produto();
