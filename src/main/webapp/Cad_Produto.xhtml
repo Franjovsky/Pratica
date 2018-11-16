@@ -16,7 +16,7 @@
 
                 <h:form>
 
-                    <p:panel id="panel" header="Novo Produto">
+                    <p:panel id="panel" header="Cadastrar novo Produto">
                     
                     <f:metadata>
                         <f:viewAction action="#{fornecedorBean.atualizarAction()}" rendererType="preRenderView" />
@@ -88,7 +88,7 @@
                     </h:commandButton>
 
                     <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
-                        <p:column headerText="Codigo Produto">
+                        <p:column headerText="Codigo do Produto">
                             <h:outputText value="#{Item_C.id_produto}"/>   
                         </p:column>
                         <p:column headerText="Nome do Produto">
