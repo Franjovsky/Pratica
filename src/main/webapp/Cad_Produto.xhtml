@@ -86,7 +86,8 @@
                                      value="Atualizar" style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="tabela1"/>
                     </h:commandButton>
-
+              
+                    
                     <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
                         <p:column headerText="Codigo do Produto">
                             <h:outputText value="#{Item_C.id_produto}"/>   

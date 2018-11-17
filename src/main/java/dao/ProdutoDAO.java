@@ -28,5 +28,8 @@ public class ProdutoDAO {
 
     public List<Produto> findAll() {
         return session.createQuery("select p from Produto p").list();
+        
+    
     }
+    
 }
