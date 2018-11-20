@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.event.AjaxBehaviorEvent;
 import model.Produto;
+import org.hibernate.criterion.LikeExpression;
 
 @Named(value = "produtoBean")
 @SessionScoped
@@ -24,6 +25,10 @@ public class ProdutoBean implements Serializable {
         this.produtos = produtoDAO.findAll();
     }
 
+    public void buscarAction(){
+                   
+    }
+    
     public void atualizarAction() {
         this.produtos = produtoDAO.findAll();
     }
