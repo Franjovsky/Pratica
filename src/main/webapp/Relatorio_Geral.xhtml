@@ -9,7 +9,7 @@
     <h:head>
         <title>Produto</title>
 
-       
+
     </h:head>
     <h:body>
 
@@ -18,65 +18,59 @@
 
                 <h:form>
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 6e776a421d14afa825aa1da0ae0ece8023bfb10c
                     <h:commandButton action="#{produtoBean.atualizarAction()}" 
                                      value="Atualizar" style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="tabela2"/>
                     </h:commandButton>
-<<<<<<< HEAD
+                    <br/>
                     <br/>
                     <p:outputLabel value="Pesquisar Produto">
-                    <h:inputText  value="#{produtoBean.nome_produto}" 
-                                 onkeypress="onchange();">
-                        <f:ajax event="change" listener="#{produtoBean.pesquisarAction}" render="tabela1" execute="tabela1" />
-                    </h:inputText>
-                    </p:outputLabel>
                         <br/>
-=======
-                                           
-                    <h:outputText value="  Pesquisar: "/>
-                    <h:inputText id="inputId" class="form-control" required="" value="#{produtoBean.produto.descricao_produto}"/>
-                    
+                        <h:inputText   value="#{produtoBean.nome_produto}" 
+                                       onkeypress="onchange();">
+                            
+                            <f:ajax event="change" listener="#{produtoBean.pesquisarAction}" render="tabela1" execute="tabela1" />
+                        </h:inputText>
+                    </p:outputLabel>
+                    <br/>
+                    <br/>
 
->>>>>>> 6e776a421d14afa825aa1da0ae0ece8023bfb10c
-                    <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
-                        
-                        <p:column headerText="Cód. Produto">
-                            <h:outputText value="#{Item_C.id_produto}"/>   
-                        </p:column>
-                        
-                        <p:column headerText="Produto">
-                            <h:outputText value="#{Item_C.descricao_produto}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Quantidade em estoque">
-                            <h:outputText value="#{Item_C.qtde}"/>
-                        
-                        </p:column>
-                        <p:column headerText="Marca">
-<<<<<<< HEAD
+                    <p:panel  id="panel" header="Estoque geral de produtos" >
 
-=======
->>>>>>> 6e776a421d14afa825aa1da0ae0ece8023bfb10c
-                            <h:outputText value="#{Item_C.marca.desc_marca}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Categoria">
-                            <h:outputText value="#{Item_C.categoria.desc_categoria}"/>
-                        </p:column>
-                        <p:column headerText="Volume">
-                            <h:outputText value="#{Item_C.tipo_volume}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Cód. barras">
-                            <h:outputText value="#{Item_C.cod_barras}"/>
-                        </p:column>
+                        <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
 
-                    </p:dataTable>
+                            <p:column headerText="Cód. Produto">
+                                <h:outputText value="#{Item_C.id_produto}"/>   
+                            </p:column>
+
+                            <p:column headerText="Produto">
+                                <h:outputText value="#{Item_C.descricao_produto}"/>
+                            </p:column>
+
+                            <p:column headerText="Quantidade em estoque">
+                                <h:outputText value="#{Item_C.qtde}"/>
+
+                            </p:column>
+                            <p:column headerText="Marca">
+
+                                <h:outputText value="#{Item_C.marca.desc_marca}"/>
+                            </p:column>
+
+                            <p:column headerText="Categoria">
+                                <h:outputText value="#{Item_C.categoria.desc_categoria}"/>
+                            </p:column>
+                            <p:column headerText="Volume">
+                                <h:outputText value="#{Item_C.tipo_volume}"/>
+                            </p:column>
+
+                            <p:column headerText="Cód. barras">
+                                <h:outputText value="#{Item_C.cod_barras}"/>
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:panel>
                 </h:form>
             </ui:define>
         </ui:composition>        

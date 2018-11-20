@@ -31,18 +31,18 @@ public class ProdutoDAO {
         
     
     }
-<<<<<<< HEAD
+
     public List<Produto> findPesquisa(String nome_produto) {
         return session.createQuery("select p from Produto p where p.descricao_produto like :a")
                 .setParameter("a", "%"+nome_produto+"%")
                 .list();
     }
-=======
+
 
    public Produto find (int id ){
         return session.get(Produto.class,id);
     }
     
->>>>>>> 6e776a421d14afa825aa1da0ae0ece8023bfb10c
+
 }
 
