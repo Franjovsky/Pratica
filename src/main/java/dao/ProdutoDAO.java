@@ -29,4 +29,10 @@ public class ProdutoDAO {
     public List<Produto> findAll() {
         return session.createQuery("select p from Produto p").list();
     }
+    public List<Produto> findPesquisa(String nome_produto) {
+        return session.createQuery("select p from Produto p where p.descricao_produto like :a")
+                .setParameter("a", "%"+nome_produto+"%")
+                .list();
+    }
 }
+

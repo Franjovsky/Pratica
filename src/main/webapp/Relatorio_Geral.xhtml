@@ -8,6 +8,8 @@
 
     <h:head>
         <title>Produto</title>
+
+       
     </h:head>
     <h:body>
 
@@ -16,13 +18,20 @@
 
                 <h:form>
 
-                    
+
 
                     <h:commandButton action="#{produtoBean.atualizarAction()}" 
                                      value="Atualizar" style="width: 110px; height: 50px;">
                         <f:ajax render="@form" execute="tabela2"/>
                     </h:commandButton>
-
+                    <br/>
+                    <p:outputLabel value="Pesquisar Produto">
+                    <h:inputText  value="#{produtoBean.nome_produto}" 
+                                 onkeypress="onchange();">
+                        <f:ajax event="change" listener="#{produtoBean.pesquisarAction}" render="tabela1" execute="tabela1" />
+                    </h:inputText>
+                    </p:outputLabel>
+                        <br/>
                     <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
                         <p:column headerText="Cód. Produto">
                             <h:outputText value="#{Item_C.id_produto}"/>   
@@ -34,7 +43,7 @@
                             <h:outputText value="#{Item_C.qtde}"/>
                         </p:column>
                         <p:column headerText="Marca">
-                            
+
                             <h:outputText value="#{Item_C.marca.desc_marca}"/>
                         </p:column>
                         <p:column headerText="Categoria">

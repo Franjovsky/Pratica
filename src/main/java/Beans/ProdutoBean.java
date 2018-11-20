@@ -6,12 +6,15 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.event.AjaxBehaviorEvent;
 import model.Produto;
 
 @Named(value = "produtoBean")
 @SessionScoped
 public class ProdutoBean implements Serializable {
 
+    private String nome_produto;
+    
     public ProdutoBean() {
     }
 
@@ -28,6 +31,10 @@ public class ProdutoBean implements Serializable {
     public void removeAction(Produto prd) {
         produtoDAO.delete(prd);
         this.produtos = produtoDAO.findAll();
+    }
+    
+    public void pesquisarAction(AjaxBehaviorEvent event){
+      this.produtos = produtoDAO.findPesquisa(nome_produto);
     }
     
     private ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -52,5 +59,13 @@ public class ProdutoBean implements Serializable {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public String getNome_produto() {
+        return nome_produto;
+    }
+
+    public void setNome_produto(String nome_produto) {
+        this.nome_produto = nome_produto;
     }
 }
