@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Movimentação implements Serializable {
+public class Movimentacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_movimentacao;
