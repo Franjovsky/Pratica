@@ -20,24 +20,25 @@
 
 
 
-                    <h:commandButton  action="#{produtoBean.atualizarAction()}" 
-                                     value="Atualizar" style="width: 110px; height: 50px;">
-                        <f:ajax render="@form" execute="tabela2"/>
-                    </h:commandButton>
-                    <br/>
-                    <br/>
-                    <p:outputLabel value="Pesquisar Produto">
-                        <br/>
-                        <h:inputText   value="#{produtoBean.nome_produto}" 
-                                       onkeypress="onchange();">
-                            
-                            <f:ajax event="change" listener="#{produtoBean.pesquisarAction}" render="tabela1" execute="tabela1" />
-                        </h:inputText>
-                    </p:outputLabel>
-                    <br/>
-                    <br/>
 
-                    <p:panel  id="panel" header="Estoque geral de produtos" >
+
+                    <p:panel  id="panel" header="Estoque geral de produtos" style="background-color: #66afe9">
+
+                        <h:commandButton  action="#{produtoBean.atualizarAction()}" 
+                                          value="Atualizar" style="width: 110px; height: 50px;">
+                            <f:ajax render="@form" execute="tabela2"/>
+                        </h:commandButton>
+                        <br/>
+                        <br/>
+                        <p:outputLabel value="Pesquisar Produto">
+                            <h:inputText   value="#{produtoBean.nome_produto}" 
+                                           onkeypress="onchange();">
+
+                                <f:ajax event="change" listener="#{produtoBean.pesquisarAction}" render="tabela1" execute="tabela1" />
+                            </h:inputText>
+                        </p:outputLabel>
+                        <br/>
+                        <br/>
 
                         <p:dataTable value="#{produtoBean.produtos}" var="Item_C" id="tabela1">
 

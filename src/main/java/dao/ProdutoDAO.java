@@ -38,7 +38,6 @@ public class ProdutoDAO {
                 .list();
     }
 
-
    public Produto find (int id ){
         return session.get(Produto.class,id);
     }

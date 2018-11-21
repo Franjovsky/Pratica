@@ -15,7 +15,7 @@ import org.hibernate.criterion.LikeExpression;
 public class ProdutoBean implements Serializable {
 
     private String nome_produto;
-    
+
     public ProdutoBean() {
     }
 
@@ -25,10 +25,10 @@ public class ProdutoBean implements Serializable {
         this.produtos = produtoDAO.findAll();
     }
 
-    public void buscarAction(){
-                   
+    public void buscarAction() {
+
     }
-    
+
     public void atualizarAction() {
         this.produtos = produtoDAO.findAll();
     }
@@ -37,11 +37,11 @@ public class ProdutoBean implements Serializable {
         produtoDAO.delete(prd);
         this.produtos = produtoDAO.findAll();
     }
-    
-    public void pesquisarAction(AjaxBehaviorEvent event){
-      this.produtos = produtoDAO.findPesquisa(nome_produto);
+
+    public void pesquisarAction(AjaxBehaviorEvent event) {
+        this.produtos = produtoDAO.findPesquisa(nome_produto);
     }
-    
+
     private ProdutoDAO produtoDAO = new ProdutoDAO();
 
     private Produto produto = new Produto();
@@ -73,4 +73,6 @@ public class ProdutoBean implements Serializable {
     public void setNome_produto(String nome_produto) {
         this.nome_produto = nome_produto;
     }
+
+  
 }
