@@ -51,6 +51,6 @@ Contributor(s):
     <mapping class="model.Marca" file="" jar="" package="" resource=""/>
     <mapping class="model.Categoria"/>
     <mapping class="model.Usuario"/>
-    <mapping class="model.Movimentação"/>
+    <mapping class="model.Movimentacao" file="" jar="" package="" resource=""/>
   </session-factory>
 </hibernate-configuration>

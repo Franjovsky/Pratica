@@ -2,6 +2,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -46,7 +47,7 @@ public class Movimentacao implements Serializable {
     }
 
     public String getMov_data() {
-        return mov_data;
+        return(mov_data);
     }
 
     public void setMov_data(String mov_data) {

@@ -15,10 +15,10 @@ public class MovimentacaoDAO {
     }
 
     public List<Movimentacao> findSaz() {
-        return session.createQuery("select extract(month from mov_data) Mes, produto.descricao_produto, sum(mov_qtde) qtde\n"
-                + "from movimentacao m\n"
-                + "inner join produto on produto.id_produto=m.id_produto\n"
-                + "group by extract (month from mov_data), produto.descricao_produto\n"
+        return session.createSQLQuery("select extract(month from mov_data) Mes, produto.descricao_produto, sum(mov_qtde) qtde "
+                + "from movimentacao m "
+                + "inner join produto on produto.id_produto=m.id_produto "
+                + "group by extract (month from mov_data), produto.descricao_produto "
                 + "order by qtde desc limit(10)").list();
     }
 }
