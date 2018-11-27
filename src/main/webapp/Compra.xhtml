@@ -19,7 +19,7 @@
                 <h:messages/>
                 <h:form>
 
-                    <p:panel id="panel" header="Nova Venda"  style="background-color: #66afe9">
+                    <p:panel id="panel" header="Nova Compra"  style="background-color: #66afe9">
 
                         <h:panelGrid columns="2" style="border-style: groove">
 
@@ -30,7 +30,7 @@
                             </h:selectOneMenu>
                              <h:outputLabel value="Quantidade"/>
                              <h:inputText value="#{movimentacaoBean.movimentacao.mov_qtde}"/>
-                             <h:commandButton value="Confirmar Venda" action ="#{movimentacaoBean.insertAction()}">
+                             <h:commandButton value="Confirmar Compra" action ="#{movimentacaoBean.insertCompra()}">
                                 
                             </h:commandButton>
                         </h:panelGrid>

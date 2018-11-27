@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -120,4 +121,69 @@ public class Produto implements Serializable {
         this.pr_venda = pr_venda;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + this.id_produto;
+        hash = 43 * hash + this.cod_barras;
+        hash = 43 * hash + this.qtde;
+        hash = 43 * hash + Objects.hashCode(this.descricao_produto);
+        hash = 43 * hash + Objects.hashCode(this.marca);
+        hash = 43 * hash + Objects.hashCode(this.categoria);
+        hash = 43 * hash + Objects.hashCode(this.fornecedor);
+        hash = 43 * hash + Objects.hashCode(this.tipo_volume);
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.peso_produto) ^ (Double.doubleToLongBits(this.peso_produto) >>> 32));
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.custo) ^ (Double.doubleToLongBits(this.custo) >>> 32));
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.pr_venda) ^ (Double.doubleToLongBits(this.pr_venda) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        if (this.id_produto != other.id_produto) {
+            return false;
+        }
+        if (this.cod_barras != other.cod_barras) {
+            return false;
+        }
+        if (this.qtde != other.qtde) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.peso_produto) != Double.doubleToLongBits(other.peso_produto)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.custo) != Double.doubleToLongBits(other.custo)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.pr_venda) != Double.doubleToLongBits(other.pr_venda)) {
+            return false;
+        }
+        if (!Objects.equals(this.descricao_produto, other.descricao_produto)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo_volume, other.tipo_volume)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.fornecedor, other.fornecedor)) {
+            return false;
+        }
+        return true;
+    }
+ 
 }
