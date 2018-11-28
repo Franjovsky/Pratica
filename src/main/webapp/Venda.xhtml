@@ -16,12 +16,11 @@
                     <f:viewAction action="#{produtoBean.atualizarAction()}" rendererType="preRenderView" />
                    
                 </f:metadata>
-                <h:messages/>
+               
                 <h:form>
 
                     <p:panel id="panel" header="Nova Venda"  style="background-color: #66afe9">
-
-                        <h:panelGrid columns="2" style="border-style: groove">
+                        <p:panelGrid columns="2" style="border-style: groove">
 
                             <h:outputLabel value="Produto"/>
                             <h:selectOneMenu value="#{movimentacaoBean.movimentacao.id_produto}" converter="produtoConverter"> 
@@ -30,10 +29,11 @@
                             </h:selectOneMenu>
                              <h:outputLabel value="Quantidade"/>
                              <h:inputText value="#{movimentacaoBean.movimentacao.mov_qtde}"/>
-                             <h:commandButton value="Confirmar Venda" action ="#{movimentacaoBean.insertAction()}">
-                                
-                            </h:commandButton>
-                        </h:panelGrid>
+                             </p:panelGrid>
+                             <br/>
+                        
+                             <h:commandButton value="Confirmar Venda" action ="#{movimentacaoBean.insertAction()}">                                
+                            </h:commandButton>                        
                     </p:panel>
                 </h:form>
             </ui:define>

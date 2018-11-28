@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.Marca;
 
 @Named(value = "marcaBean")
@@ -15,8 +17,21 @@ public class MarcaBean implements Serializable {
     public MarcaBean() {
     }
 
+                public void mensagens(String mensagem, int tipo) {
+        if (tipo == 0) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        }
+    }
+    
     public void insertAction() {
         marcaDAO.insert(marca);
+        mensagens("Cadastrado com sucesso", 1);
         this.marca = new Marca();
         this.marcas = marcaDAO.findAll();
     }

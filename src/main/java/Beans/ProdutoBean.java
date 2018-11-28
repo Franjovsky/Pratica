@@ -6,6 +6,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import model.Produto;
 import org.hibernate.criterion.LikeExpression;
@@ -19,14 +21,31 @@ public class ProdutoBean implements Serializable {
     public ProdutoBean() {
     }
 
+    public void selectItem(Produto p) {
+        this.produto = p;
+    }
+    
     public void insertAction() {
         produtoDAO.insert(produto);
+        mensagens("Cadastrado com sucesso", 1);
         this.produto = new Produto();
         this.produtos = produtoDAO.findAll();
     }
 
     public void buscarAction() {
 
+    }
+    
+    public void mensagens(String mensagem, int tipo) {
+        if (tipo == 0) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        }
     }
 
     public void atualizarAction() {

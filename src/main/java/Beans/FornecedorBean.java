@@ -6,6 +6,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.Fornecedor;
 
 @Named(value = "fornecedorBean")
@@ -14,9 +16,24 @@ public class FornecedorBean implements Serializable {
 
     public FornecedorBean() {
     }
+        public void mensagens(String mensagem, int tipo) {
+        if (tipo == 0) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        }
+    }
+          public void selectItem(Fornecedor f) {
+        this.fornecedor = f;
+    }
 
     public void insertAction() {
         fornecedorDAO.insert(fornecedor);
+        mensagens("Cadastrado com sucesso", 1);
         this.fornecedor = new Fornecedor();
         this.fornecedores = fornecedorDAO.findAll();
     }

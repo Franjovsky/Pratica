@@ -15,7 +15,8 @@
             <ui:define name="conteudo">
 
                 <h:form>
-
+                    
+                    <p:growl showDetail="true" showSummary="true" id="msg" widgetVar="msg" life="2000"/>
                     <p:panel id="panel" header="Cadastrar novo Produto" style="background-color: #66afe9">
 
                         <f:metadata>
@@ -24,7 +25,7 @@
                             <f:viewAction action="#{categoriaBean.atualizarAction()}" rendererType="preRenderView" />
 
                         </f:metadata>
-                        <h:messages/>
+                        
                         <p:panelGrid columns="2" style="border-style: groove">
 
                             <h:outputLabel  value="Código de Barras"/>
@@ -105,6 +106,10 @@
                                                  " style="width: 165px; height: 50px;">
                                     <f:ajax render="@form" execute="@form"/>
                                 </h:commandButton>
+                                <h:commandButton action="#{produtoBean.selectItem(Item_C)}" value="Editar"  
+                                                 style="width: 165px; height: 50px;" >
+                                <f:ajax render="@form" execute="@form" />
+                            </h:commandButton>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

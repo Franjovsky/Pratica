@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.Categoria;
 
 @Named(value = "categoriaBean")
@@ -15,8 +17,21 @@ public class CategoriaBean implements Serializable {
     public CategoriaBean() {
     }
 
+            public void mensagens(String mensagem, int tipo) {
+        if (tipo == 0) {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", mensagem);
+            FacesContext contexto = FacesContext.getCurrentInstance();
+            contexto.addMessage(null, msg);
+        }
+    }
+    
     public void insertAction() {
         categoriaDAO.insert(categoria);
+        mensagens("Cadastrado com sucesso", 1);
         this.categoria = new Categoria();
         this.categorias = categoriaDAO.findAll();
     }
