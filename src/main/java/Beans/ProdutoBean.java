@@ -1,5 +1,6 @@
 package Beans;
 
+import config.ReportsUtil;
 import dao.ProdutoDAO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -94,4 +95,11 @@ public class ProdutoBean implements Serializable {
     }
 
   
+    public void gerarRelatorio() {
+        ReportsUtil ru = new ReportsUtil();
+       // Map parametros = new HashMap();
+
+        //parametros.put("cep", this.parCep);
+        ru.imprimirRelatorio("sazonal", null);
+    }
 }

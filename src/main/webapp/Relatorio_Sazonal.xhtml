@@ -11,31 +11,11 @@
     <body>
         <ui:composition template="Meu_templatinho.xhtml">
             <ui:define name="conteudo">
-                
                 <h:form>
-                <p:panel id="panel" header="Estoque Sazonal" style="background-color: #66afe9">
-                    
-                    <h:commandButton  action="#{movimentacaoBean.atualizarAction()}" value="Atualizar" style="width: 110px; height: 50px;">
-                            <f:ajax render="@form" execute="tabela2"/>
-                        </h:commandButton>
-                    
-                    <p:dataTable value="#{movimentacaoBean.sazonalidade}" var="Item_S" id="tabela4">
-                        
-                        <p:column headerText="Mês Ref.">
-                            <h:outputText value="#{Item_S.mov_data}"/>   
-                            </p:column>
-                         
-                        <p:column headerText="Produto">
-                            <h:outputText value="#{Item_S.id_produto}"/>   
-                            </p:column>
-                         
-                        <p:column headerText="Quantidade">
-                            <h:outputText value="#{Item_S.mov_qtde}"/>   
-                            </p:column>
-                    </p:dataTable>
-                </p:panel>
+                    <h:commandButton value="gerar relatorio" action="#{produtoBean.gerarRelatorio()}"/>
+
                 </h:form>
             </ui:define>
         </ui:composition>
-                </body>
-                </html>
+    </body>
+</html>

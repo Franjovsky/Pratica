@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sazonal" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d819ebc6-996c-47ad-9b65-9444933e7e37">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="relatorioadaptador.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select ano, mes, produto, sum(mov_qtde) qtde
+	from(
+		select cast(extract(year from mov_data) as integer) Ano, cast(extract(month from mov_data) as integer)Mes, produto.descricao_produto produto, cast(mov_qtde as integer)mov_qtde
+		from movimentacao m
+		inner join produto on produto.id_produto=m.id_produto
+		
+		)a
+
+group by ano,mes,produto
+order by ano,mes
+limit 10]]>
+	</queryString>
+	<field name="ano" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="ano"/>
+		<fieldDescription><![CDATA[Ano]]></fieldDescription>
+	</field>
+	<field name="mes" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+		<fieldDescription><![CDATA[Mês]]></fieldDescription>
+	</field>
+	<field name="produto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="produto"/>
+		<fieldDescription><![CDATA[Produto]]></fieldDescription>
+	</field>
+	<field name="qtde" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="qtde"/>
+		<fieldDescription><![CDATA[Quantidade]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="17" width="595" height="30" uuid="7e76612f-b24a-4719-a973-cdf42f7448b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sazonalidade]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="114" y="0" width="58" height="22" uuid="85437f9f-0bc2-4942-930e-7282b684d471"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="1" width="68" height="20" uuid="851e6a6d-2f65-4017-aed5-d45fc2b715c7"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="0" width="60" height="20" uuid="f3ed26a4-e591-4ae6-a8cd-92f27f3bb622"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Período]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="115" y="0" width="100" height="20" uuid="90d8ccae-6d0f-43af-bc09-e8181e3bff9d"/>
+				<textFieldExpression><![CDATA[$F{produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="68" height="20" uuid="70d1ae61-b2cc-4265-8041-c73e7737aa45"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{qtde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-10" y="0" width="40" height="15" uuid="d3b72155-c178-4517-ba1c-5afe36ffd75b"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="1" width="42" height="14" uuid="a863ef1b-47a3-4fec-ad2c-b20873dd8ae4"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="0" width="12" height="20" uuid="947a319b-1b99-4d99-8083-385b1003be51"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
