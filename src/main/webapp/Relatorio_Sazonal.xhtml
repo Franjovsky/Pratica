@@ -12,8 +12,9 @@
         <ui:composition template="Meu_templatinho.xhtml">
             <ui:define name="conteudo">
                 <h:form>
-                    <h:commandButton value="gerar relatorio" action="#{produtoBean.gerarRelatorio()}"/>
-
+                    <h:commandButton value="Gerar Relatório Sazonal" action="#{produtoBean.gerarRelatorioSazonal()}"/>
+                    <br/>
+                    <h:commandButton value="Gerar Relatório Geral" action="#{produtoBean.gerarRelatorioGeral()}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

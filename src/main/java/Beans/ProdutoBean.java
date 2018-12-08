@@ -25,7 +25,7 @@ public class ProdutoBean implements Serializable {
     public void selectItem(Produto p) {
         this.produto = p;
     }
-    
+
     public void insertAction() {
         produtoDAO.insert(produto);
         mensagens("Cadastrado com sucesso", 1);
@@ -36,7 +36,7 @@ public class ProdutoBean implements Serializable {
     public void buscarAction() {
 
     }
-    
+
     public void mensagens(String mensagem, int tipo) {
         if (tipo == 0) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aviso", mensagem);
@@ -94,12 +94,13 @@ public class ProdutoBean implements Serializable {
         this.nome_produto = nome_produto;
     }
 
-  
-    public void gerarRelatorio() {
+    public void gerarRelatorioSazonal() {
         ReportsUtil ru = new ReportsUtil();
-       // Map parametros = new HashMap();
-
-        //parametros.put("cep", this.parCep);
         ru.imprimirRelatorio("sazonal", null);
+    }
+    
+     public void gerarRelatorioGeral() {
+        ReportsUtil ru = new ReportsUtil();
+        ru.imprimirRelatorio("geral", null);
     }
 }
